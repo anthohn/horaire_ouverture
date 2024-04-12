@@ -12,7 +12,7 @@ $dates = [
     'sunday' => '2024-02-25T09:15:00.000',
     'friday_morning' => '2024-02-23T08:00:00.000',
     'monday_morning' => '2024-02-26T08:00:00.000',
-    'thursday_afternoon' => '2024-02-2  2T14:00:00.000',
+    'thursday_afternoon' => '2024-02-22T14:00:00.000'
 ];
 
 // Assertions to validate the functions
