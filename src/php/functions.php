@@ -6,7 +6,7 @@ $openingHours = [
     'Tue' => [['08:00', '12:00'], ['14:00', '18:00']],
     'Wed' => [['08:00', '16:00']],
     'Thu' => [['08:00', '12:00'], ['14:00', '18:00']],
-    'Fri' => [['08:00', '13:00']],
+    'Fri' => [['08:00', '16:00']],
     'Sat' => [['08:00', '12:00']],
     'Sun' => [], // Le magasin fermé
 ];
@@ -30,7 +30,6 @@ function isOpenOn($date, $openingHours)
             }
         }
     }
-
     return false;
 }
 
@@ -48,3 +47,17 @@ function NextOpeningDate($date, $openingHours)
         }
     }
 }
+
+
+// Exemples d'utilisation
+$date = '2024-02-21T07:45:00.000';
+var_dump(isOpenOn($date, $openingHours)); // Sortie: bool(false)
+
+$date = '2024-02-22T12:22:11.824';
+var_dump(isOpenOn($date, $openingHours)); // Sortie: bool(false)
+
+$date = '2024-02-22T14:00:00.000';
+var_dump(nextOpeningDate($date, $openingHours)); // Sortie: string(19) "2024-02-23 08:00:00"
+
+$date = '2024-02-24T09:15:00.000';
+var_dump(nextOpeningDate($date, $openingHours)); // Sortie: string(19) "2024-02-26 08:00:00"

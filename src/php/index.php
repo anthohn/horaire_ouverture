@@ -12,17 +12,6 @@
     // Inclure les fonctions
     include 'functions.php';
 
-    // Définir les heures d'ouverture
-    // $openingHours = [
-    //     'Mon' => [['08:00', '16:00']],
-    //     'Tue' => [['08:00', '12:00'], ['14:00', '18:00']],
-    //     'Wed' => [['08:00', '16:00']],
-    //     'Thu' => [['08:00', '12:00'], ['14:00', '18:00']],
-    //     'Fri' => [['08:00', '16:00']],
-    //     'Sat' => [['08:00', '12:00']],
-    //     'Sun' => [], // Le magasin est fermé le dimanche
-    // ];
-
     // Date actuelle
     $currentDate = date('Y-m-d H:i:s');
 
