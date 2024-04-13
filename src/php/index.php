@@ -9,34 +9,30 @@
         <h1>Statut du magasin</h1>
         <?php
 
-        // Inclure les fonctions
-        include 'functions.php';
+            // Inclure les fonctions
+            include 'functions.php';
 
-        date_default_timezone_set('Europe/Zurich');
+            date_default_timezone_set('Europe/Zurich');
 
-        print_r($openingHours);
+            // Date actuelle
+            $currentDate = date('Y-m-d H:i:s');
 
-        // Date actuelle
-        $currentDate = date('Y-m-d H:i:s');
+            // Vérifier si le magasin est ouvert maintenant
+            $isOpen = isOpenOn($currentDate, $openingHours);
+            if ($isOpen) {
+                echo '<p>Le magasin est actuellement ouvert.</p>';
+            } else {
+                echo '<p>Le magasin est actuellement fermé.</p>';
+            }
 
-        echo $currentDate;
-
-        // Vérifier si le magasin est ouvert maintenant
-        $isOpen = isOpenOn($currentDate, $openingHours);
-        if ($isOpen) {
-            echo '<p>Le magasin est actuellement ouvert.</p>';
-        } else {
-            echo '<p>Le magasin est actuellement fermé.</p>';
-        }
-
-        // Trouver la prochaine date d'ouverture
-        $nextOpeningDate = nextOpeningDate($currentDate, $openingHours);
-        // echo $nextOpeningDate;
-        if ($nextOpeningDate) {
-            echo '<p>La prochaine ouverture du magasin aura lieu le ' . date('d/m/Y à H:i', strtotime($nextOpeningDate)) . '</p>';
-        } else {
-            echo '<p>Il n\'y a pas de date d\'ouverture planifiée pour le moment.</p>';
-        }
+            // Trouver la prochaine date d'ouverture
+            $nextOpeningDate = nextOpeningDate($currentDate, $openingHours);
+            // echo $nextOpeningDate;
+            if ($nextOpeningDate) {
+                echo '<p>La prochaine ouverture du magasin aura lieu le ' . date('d/m/Y à H:i', strtotime($nextOpeningDate)) . '</p>';
+            } else {
+                echo '<p>Il n\'y a pas de date d\'ouverture planifiée pour le moment.</p>';
+            }
         ?>
         <form action="update_opening_hours.php" method="post">
             <label for="day">Jour de la semaine:</label>

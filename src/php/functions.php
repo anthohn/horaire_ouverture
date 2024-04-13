@@ -20,7 +20,7 @@ function isOpenOn($date, $openingHours)
                 return true;
             }
         }
-    }
+    } 
     return false;
 }
 
@@ -48,5 +48,7 @@ function setOpeningHours($day, $startTime, $endTime, &$openingHours)
     } else {
         // Si les heures sont vides, cela signifie que le magasin est fermé ce jour-là
         $openingHours[$day] = [];
+        // unset($openingHours[$day]);
+
     }
 }
