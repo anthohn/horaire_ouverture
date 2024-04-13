@@ -33,14 +33,8 @@ $dates2 = [
 
 // Set the opening hours according to the instructions
 SetOpeningHours("Mon", "", "", $openingHours);
-file_put_contents('opening_hours.json', json_encode($openingHours));
-
 SetOpeningHours("Wed", "07:30", "15:45", $openingHours);
-file_put_contents('opening_hours.json', json_encode($openingHours));
-
 SetOpeningHours("Sat", "07:30", "20:00", $openingHours);
-file_put_contents('opening_hours.json', json_encode($openingHours));
-
 SetOpeningHours("Sun", "09:00", "10:15", $openingHours);
 file_put_contents('opening_hours.json', json_encode($openingHours));
 
