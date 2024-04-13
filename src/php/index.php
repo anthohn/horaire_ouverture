@@ -15,10 +15,10 @@
             date_default_timezone_set('Europe/Zurich');
 
             // Date actuelle
-            $currentDate = date('Y-m-d H:i:s');
+            $date = date('Y-m-d H:i:s');
 
             // Vérifier si le magasin est ouvert maintenant
-            $isOpen = isOpenOn($currentDate, $openingHours);
+            $isOpen = isOpenOn($date);
             if ($isOpen) {
                 echo '<p>Le magasin est actuellement ouvert.</p>';
             } else {
@@ -26,7 +26,7 @@
             }
 
             // Trouver la prochaine date d'ouverture
-            $nextOpeningDate = nextOpeningDate($currentDate, $openingHours);
+            $nextOpeningDate = nextOpeningDate($date);
             // echo $nextOpeningDate;
             if ($nextOpeningDate) {
                 echo '<p>La prochaine ouverture du magasin aura lieu le ' . date('d/m/Y à H:i', strtotime($nextOpeningDate)) . '</p>';

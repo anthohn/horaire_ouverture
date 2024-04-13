@@ -14,16 +14,16 @@ $dates = [
 ];
 
 // Assertions to validate the functions
-assert(IsOpenOn($dates['wednesday'], $openingHours) === false);
-assert(IsOpenOn($dates['thursday'], $openingHours) === false);
-assert(IsOpenOn($dates['sunday'], $openingHours) === false);
+assert(IsOpenOn($dates['wednesday']) === false);
+assert(IsOpenOn($dates['thursday']) === false);
+assert(IsOpenOn($dates['sunday']) === false);
 
-assert(NextOpeningDate($dates['thursday_afternoon'], $openingHours) === '2024-02-23 08:00');
-assert(NextOpeningDate($dates['saturday'], $openingHours) === '2024-02-26 08:00');
-assert(NextOpeningDate($dates['thursday'], $openingHours) === '2024-02-23 08:00');
+assert(NextOpeningDate($dates['thursday_afternoon']) === '2024-02-23 08:00');
+assert(NextOpeningDate($dates['saturday']) === '2024-02-26 08:00');
+assert(NextOpeningDate($dates['thursday']) === '2024-02-23 08:00');
 
 
-// // New set of operations to validate SetOpeningHours function
+// New set of operations to validate SetOpeningHours function
 $dates2 = [
     'monday' => '2024-02-26T10:20:00.000',
     'wednesday' => '2024-02-21T07:45:00.000',
@@ -32,18 +32,17 @@ $dates2 = [
 ];
 
 // Set the opening hours according to the instructions
-SetOpeningHours("Mon", "", "", $openingHours);
-SetOpeningHours("Wed", "07:30", "15:45", $openingHours);
-SetOpeningHours("Sat", "07:30", "20:00", $openingHours);
-SetOpeningHours("Sun", "09:00", "10:15", $openingHours);
-file_put_contents('opening_hours.json', json_encode($openingHours));
+SetOpeningHours("Mon", "", "");
+SetOpeningHours("Wed", "07:30", "15:45");
+SetOpeningHours("Sat", "07:30", "20:00");
+SetOpeningHours("Sun", "09:00", "10:15");
 
 
 // Check the validity of the set opening hours
-assert(IsOpenOn($dates2['monday'], $openingHours) === false);
-assert(IsOpenOn($dates2['wednesday'], $openingHours) === true);
-assert(IsOpenOn($dates2['saturday'], $openingHours) === true);
-assert(IsOpenOn($dates2['sunday'], $openingHours) === true);
+assert(IsOpenOn($dates2['monday']) === false);
+assert(IsOpenOn($dates2['wednesday']) === true);
+assert(IsOpenOn($dates2['saturday']) === true);
+assert(IsOpenOn($dates2['sunday']) === true);
 
 
 echo "All assertions have been successfully validated.";
